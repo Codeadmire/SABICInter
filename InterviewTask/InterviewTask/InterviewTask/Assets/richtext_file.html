@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Rich Text Editor</title>
+    <style>
+        .editor-container {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .editor-content {
+            width: 100%;
+            height: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="editor-container">
+        <div class="toolbar">
+            <button onclick="toggleBold()">Bold</button>
+            <button onclick="toggleItalic()">Italic</button>
+            <button onclick="toggleUnderline()">Underline</button>
+            <button onclick="toggleNormal()">Normal</button>
+            <!--<select onchange="setFont(this.value)">
+                <option value="12px">12px</option>
+                <option value="14px">14px</option>
+                <option value="16px">16px</option>
+                <option value="18px">18px</option>
+                <option value="20px">20px</option>
+                <option value="24px">24px</option>
+            </select>-->
+            <button onclick="insertTable()">Insert Table</button>
+        </div>
+        <div class="editor-content" contenteditable="true" id="editor">
+            Start typing here...
+        </div>
+        <div>
+            <input type="file" id="fileInput" multiple>
+        </div>
+    </div>
+
+    <script>// Function to handle file upload
+        document.getElementById('fileInput').addEventListener('change', function (event) {
+            const files = event.target.files;
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    document.getElementById('editor').appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Function to toggle bold
+        function toggleBold() {
+            document.execCommand('bold', false, null);
+        }
+
+        // Function to toggle italic
+        function toggleItalic() {
+            document.execCommand('italic', false, null);
+        }
+
+        // Function to toggle underline
+        function toggleUnderline() {
+            document.execCommand('underline', false, null);
+        }
+
+        // Function to set font size
+        function setFont(fontSize) {
+            document.execCommand('fontSize', false, fontSize);
+        }
+
+        // Function to toggle normal font
+        function toggleNormal() {
+            document.execCommand('removeFormat', false, null);
+        }
+
+        // Function to insert a table
+        function insertTable() {
+            const numRows = prompt("Enter number of rows:");
+            const numCols = prompt("Enter number of columns:");
+
+            let tableHTML = "<table border='1'>";
+            for (let i = 0; i < numRows; i++) {
+                tableHTML += "<tr>";
+                for (let j = 0; j < numCols; j++) {
+                    tableHTML += "<td>Cell</td>";
+                }
+                tableHTML += "</tr>";
+            }
+            tableHTML += "</table>";
+
+            document.execCommand('insertHTML', false, tableHTML);
+        }
+
+        // Function to retrieve the content
+        function getContent() {
+            return document.getElementById('editor').innerHTML;
+        }
+    </script>
+</body>
+</html>

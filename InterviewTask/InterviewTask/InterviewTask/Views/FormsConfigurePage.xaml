@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InterviewTask.Views.FormsConfigurePage">
+    <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand" Padding="5" RowDefinitions="8*,2*">
+        <ScrollView  Grid.Row="0" VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <Label Text="Control Type"/>
+            <Picker SelectedItem="{Binding SelectedControl}">
+               <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                  <x:String>TextBox</x:String>
+                  <x:String>DropDownList</x:String>
+                  <x:String>CheckBoxList</x:String>
+                  <x:String>RadioButtonList</x:String>
+                  <x:String>TextArea</x:String>
+                </x:Array>
+              </Picker.ItemsSource>
+            </Picker>
+            <Label Text="Grid Columns"/>
+            <StackLayout Orientation="Horizontal">
+             <Frame Padding="5" WidthRequest="100" HorizontalOptions="Center" VerticalOptions="Center" BorderColor="Gray" HasShadow="False">
+              <Label Text="{Binding Source={x:Reference stepperGrid}, Path=Value, StringFormat='{0:F0}'}"
+               HorizontalOptions="Center"
+               VerticalOptions="Start" />
+                </Frame>
+               <Stepper x:Name="stepperGrid"
+                 Increment="1"
+                 HorizontalOptions="Center" />
+                
+           </StackLayout>
+            <StackLayout>
+            <Label Text="Label English"/>
+            <Entry Text="{Binding EnglishText}"/>
+            </StackLayout>
+             <StackLayout>
+            <Label Text="Validation Expression English"/>
+            <Picker Title="Select..."/>
+             </StackLayout>
+            <Label Text="Max Size English"/>
+            <StackLayout Orientation="Horizontal">
+             <Frame Padding="5" WidthRequest="100" HorizontalOptions="Center" VerticalOptions="Center" BorderColor="Gray" HasShadow="False">
+              <Label Text="{Binding Source={x:Reference EnglishLabelMaxSize}, Path=Value, StringFormat='{0:F0}'}"
+               HorizontalOptions="Center"
+               VerticalOptions="Start" />
+                </Frame>
+               <Stepper x:Name="EnglishLabelMaxSize"
+                 Increment="1"
+                 HorizontalOptions="Center" />
+                
+           </StackLayout>
+            <StackLayout>
+            <Label Text="Label Arabic"/>
+            <Entry Text="{Binding ArabicText}"/>
+            </StackLayout>
+            <StackLayout>
+            <Label Text="Validation Expression Arabic"/>
+            <Picker Title="Select..."/>
+             </StackLayout>
+            <Label Text="Max Size Arabic"/>
+            <StackLayout Orientation="Horizontal">
+             <Frame Padding="5" WidthRequest="100" HorizontalOptions="Center" VerticalOptions="Center" BorderColor="Gray" HasShadow="False">
+              <Label Text="{Binding Source={x:Reference ArabicLabelMaxSize}, Path=Value, StringFormat='{0:F0}'}"
+               HorizontalOptions="Center"
+               VerticalOptions="Start" />
+                </Frame>
+               <Stepper x:Name="ArabicLabelMaxSize"
+                 Increment="1"
+                 HorizontalOptions="Center" />
+                
+           </StackLayout>
+            <Label Text="Display Order"/>
+            <StackLayout Orientation="Horizontal">
+             <Frame Padding="5" WidthRequest="100" HorizontalOptions="Center" VerticalOptions="Center" BorderColor="Gray" HasShadow="False">
+              <Label Text="{Binding Source={x:Reference DisplayOrder}, Path=Value, StringFormat='{0:F0}'}"
+               HorizontalOptions="Center"
+               VerticalOptions="Start" />
+                </Frame>
+               <Stepper x:Name="DisplayOrder"
+                 Increment="1"
+                 HorizontalOptions="Center" />
+           </StackLayout>
+             <Label Text="Mandatory"/>
+               <CheckBox x:Name="mandatoryCheckBox" IsChecked="{Binding IsMandatory}" />
+
+        </StackLayout>
+        </ScrollView>
+        <StackLayout Grid.Row="1" Margin="0,0,0,90" VerticalOptions="End" Orientation="Horizontal">
+
+                <Button  Text="Close" BackgroundColor="#E25303" HorizontalOptions="FillAndExpand"/>
+                <Button  Text="Save" Command="{Binding SaveCommand}" BackgroundColor="#11A1E1" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+          </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

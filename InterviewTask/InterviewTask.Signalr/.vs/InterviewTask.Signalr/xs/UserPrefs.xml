@@ -1,0 +1,34 @@
+﻿<Properties StartupConfiguration="{C915F230-42B1-45D4-B7EA-70DFA540CBA4}|http">
+  <MonoDevelop.Ide.ItemProperties.InterviewTask.Signalr PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Hubs/ChatHub.cs">
+    <Files>
+      <File FileName="Hubs/ChatHub.cs" Line="27" Column="45" />
+      <File FileName="Startup.cs" Line="1" Column="1" />
+      <File FileName="Model/QueryModel.cs" Line="12" Column="37" />
+      <File FileName="QueryReplyConstant.cs" Line="55" Column="29" />
+      <File FileName="Model/AttachmentModel.cs" Line="6" Column="33" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="InterviewTask.Signalr" expanded="True">
+            <Node name="InterviewTask.Signalr" expanded="True">
+              <Node name="Hubs" expanded="True">
+                <Node name="ChatHub.cs" selected="True" />
+              </Node>
+              <Node name="Model" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/tamilmaniselvaraj/Projects/InterviewTask/InterviewTask.Signalr/Startup.cs" relfile="Startup.cs" line="30" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>

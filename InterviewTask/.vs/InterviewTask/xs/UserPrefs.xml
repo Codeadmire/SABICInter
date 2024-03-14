@@ -1,0 +1,41 @@
+﻿<Properties StartupConfiguration="{9506F9B3-6DCA-4F5E-B9D2-D8C08068251A}|Default">
+  <MonoDevelop.Ide.ItemProperties.InterviewTask.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.6F765A69-F141-4A9A-AE29-EAF6A6CE8727" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <Debugger.DebugSourceFolders>
+    <String>/Users/tamilmaniselvaraj/Library/Caches/VisualStudio/17.0/Symbols/raw.githubusercontent.com/mono/mono/d9a6e8710b37cd7f16cf52eff4f772556e57cc41</String>
+  </Debugger.DebugSourceFolders>
+  <MonoDevelop.MonoDroid LastDeploySdkVersion="13.2.2.0" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="InterviewTask/InterviewTask/Views/PreviewPage.xaml.cs">
+    <Files>
+      <File FileName="InterviewTask/InterviewTask/Views/PreviewPage.xaml.cs" Line="24" Column="14" />
+      <File FileName="InterviewTask/InterviewTask/ViewModels/PreviewPageViewModel.cs" Line="135" Column="53" />
+      <File FileName="InterviewTask/InterviewTask/Views/FormsConfigurePage.xaml" Line="16" Column="41" />
+      <File FileName="InterviewTask/InterviewTask.iOS/Main.cs" Line="17" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="InterviewTask" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/tamilmaniselvaraj/Projects/InterviewTask/InterviewTask/InterviewTask/Views/AboutPage.xaml.cs" relfile="InterviewTask/InterviewTask/Views/AboutPage.xaml.cs" line="16" column="1" />
+      <Breakpoint file="/Users/tamilmaniselvaraj/Projects/InterviewTask/InterviewTask/InterviewTask/Views/RichTextPage.xaml.cs" relfile="InterviewTask/InterviewTask/Views/RichTextPage.xaml.cs" line="23" column="1" />
+      <Breakpoint file="/Users/tamilmaniselvaraj/Projects/InterviewTask/InterviewTask/InterviewTask.Android/Dependencies/AudioRecorder.cs" relfile="InterviewTask/InterviewTask.Android/Dependencies/AudioRecorder.cs" line="80" column="1" />
+      <Breakpoint file="/Users/tamilmaniselvaraj/Projects/InterviewTask/InterviewTask/InterviewTask.Android/Dependencies/AudioRecorder.cs" relfile="InterviewTask/InterviewTask.Android/Dependencies/AudioRecorder.cs" line="88" column="1" />
+      <Breakpoint file="/Users/tamilmaniselvaraj/Projects/InterviewTask/InterviewTask/InterviewTask.Android/Dependencies/AudioRecorder.cs" relfile="InterviewTask/InterviewTask.Android/Dependencies/AudioRecorder.cs" line="52" column="1" />
+      <Breakpoint file="/Users/tamilmaniselvaraj/Projects/InterviewTask/InterviewTask/InterviewTask/Services/ChatService.cs" relfile="InterviewTask/InterviewTask/Services/ChatService.cs" line="25" column="1" />
+      <Breakpoint file="/Users/tamilmaniselvaraj/Projects/InterviewTask/InterviewTask/InterviewTask/Services/ChatService.cs" relfile="InterviewTask/InterviewTask/Services/ChatService.cs" line="30" column="1" />
+      <Breakpoint file="/Users/tamilmaniselvaraj/Projects/InterviewTask/InterviewTask/InterviewTask/ViewModels/ChatRoomPageViewModel.cs" relfile="InterviewTask/InterviewTask/ViewModels/ChatRoomPageViewModel.cs" line="112" column="1" />
+      <Breakpoint file="/Users/tamilmaniselvaraj/Projects/InterviewTask/InterviewTask/InterviewTask/ViewModels/ChatRoomPageViewModel.cs" relfile="InterviewTask/InterviewTask/ViewModels/ChatRoomPageViewModel.cs" line="110" column="1" />
+      <Breakpoint file="/Users/tamilmaniselvaraj/Projects/InterviewTask/InterviewTask/InterviewTask/Views/PreviewPage.xaml.cs" relfile="InterviewTask/InterviewTask/Views/PreviewPage.xaml.cs" line="26" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <Xamarin.Addins.Core.Project ActiveDebugTarget="Android.SelectDevice" />
+  <MonoDevelop.Ide.ItemProperties.InterviewTask.Android PreferredExecutionTarget="Android.SelectDevice" AndroidDesignerPreferredTheme="MainTheme" />
+</Properties>

@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InterviewTask.Views.ChatRoomPage"
+    xmlns:viewModel="clr-namespace:InterviewTask.ViewModels"
+	xmlns:datatemplates="clr-namespace:InterviewTask.DataTemplates"
+    xmlns:converters="clr-namespace:InterviewTask.Converters"
+    xmlns:imageextension="clr-namespace:InterviewTask.Extensions">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InverseBoolConverter x:Key="InverseBool" />
+            <DataTemplate x:Key="OwnerTemplate">
+				<ViewCell>
+				  <Grid FlowDirection="RightToLeft">
+                    <!--<Grid.ColumnDefinitions>
+                     <ColumnDefinition Width="5*" />
+                     <ColumnDefinition Width="5*" />
+                     </Grid.ColumnDefinitions>-->
+                   <Grid.RowDefinitions>
+                   <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                   </Grid.RowDefinitions>
+                     <Label Margin="10,0"
+                            HorizontalOptions="Start"
+                            Text="{Binding UserName}"
+                            TextColor="#969daf" />
+                     <Grid
+                        Grid.Row="1"
+                        Margin="5"
+                        Padding="10"
+                        HorizontalOptions="Start"
+                        VerticalOptions="FillAndExpand">
+                         <BoxView BackgroundColor="#2ac2c5"
+                                  CornerRadius="10"
+                                  HorizontalOptions="FillAndExpand" />
+                         <Label
+                           Margin="10"
+                           LineBreakMode="CharacterWrap"
+                           Text="{Binding Message}"
+                           TextColor="White"
+                           VerticalOptions="FillAndExpand" />
+                      </Grid>
+                    </Grid>
+				</ViewCell>
+			</DataTemplate>
+			<DataTemplate x:Key="QueryResponseTemplate">
+				<ViewCell>
+				<Grid Margin="5" BackgroundColor="#F5F5F5" Padding="5" ColumnDefinitions="80,*" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand">
+                    <Image Grid.Column="0"
+                           VerticalOptions="Start"
+                           Source="{imageextension:ImageResource InterviewTask.Images.chatbot_icon.png}"/>
+                    <StackLayout Grid.Column="1">
+                        <Label Text="{Binding QueryResponse.Title}" FontSize="Small" FontAttributes="Bold"/>
+
+                        <Label Text="{Binding QueryResponse.Description}" Margin="0,5,0,0" FontSize="Small"/>
+
+                        <StackLayout Orientation="Horizontal" BindableLayout.ItemsSource="{Binding QueryResponse.Attachment}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame CornerRadius="20" Padding="10" BorderColor="Gray" HasShadow="False">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image Source="{imageextension:ImageResource InterviewTask.Images.attachment_icon.png}" WidthRequest="20" HeightRequest="20"/>
+                                            <Label Text="{Binding Name}" LineBreakMode="TailTruncation" FontSize="Micro" VerticalOptions="Center"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" BindableLayout.ItemsSource="{Binding QueryResponse.Actions}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame CornerRadius="15" Padding="10" BorderColor="#B2D4F0" HasShadow="False">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image  WidthRequest="10" HeightRequest="10">
+                                             <Image.Triggers>
+                                            <DataTrigger TargetType="Image" Binding="{Binding Source={x:Reference labelAction},Path=Text}" Value="Copy">
+
+                                                <Setter Property="Source" Value="{imageextension:ImageResource InterviewTask.Images.copy_icon.png}"/>
+                                             </DataTrigger>
+                                               <DataTrigger TargetType="Image" Binding="{Binding Source={x:Reference labelAction},Path=Text}" Value="Share">
+
+                                                <Setter Property="Source" Value="{imageextension:ImageResource InterviewTask.Images.share_icon.png}"/>
+                                             </DataTrigger>
+                                             </Image.Triggers>
+                                            </Image>
+                                            <Label x:Name="labelAction" Text="{Binding Name}" LineBreakMode="TailTruncation" FontSize="Micro"/>
+                                        </StackLayout>
+                                    </Frame>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </StackLayout>
+                    </Grid>	
+				</ViewCell>
+			</DataTemplate>
+            <DataTemplate x:Key="OthersTemplate">
+				<ViewCell>
+				<Grid>
+                  <Grid.ColumnDefinitions>
+                   <ColumnDefinition Width="5*" />
+                   <ColumnDefinition Width="5*" />
+                   </Grid.ColumnDefinitions>
+                   <Grid.RowDefinitions>
+                   <RowDefinition Height="Auto" />
+                   <RowDefinition Height="Auto" />
+                   </Grid.RowDefinitions>
+                   <Label
+                    Grid.Column="1"
+                    Margin="10,0"
+                    HorizontalOptions="End"
+                    HorizontalTextAlignment="End"
+                    Text="{Binding UserName}"
+                    TextColor="#969daf" />
+                   <Grid
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="20,5"
+                    Padding="10"
+                    HorizontalOptions="End"
+                    VerticalOptions="FillAndExpand">
+                    <BoxView
+                    BackgroundColor="#f5f9fa"
+                    CornerRadius="10"
+                    HorizontalOptions="FillAndExpand" />
+                    <Label
+                     Margin="10"
+                     LineBreakMode="CharacterWrap"
+                     Text="{Binding Message}"
+                     TextColor="#696f7f"
+                     VerticalOptions="FillAndExpand" />
+                     </Grid>
+                    </Grid>	
+				</ViewCell>
+			</DataTemplate>
+             <DataTemplate x:Key="SystemTemplate">
+				<ViewCell>
+				<Grid VerticalOptions="Start" HorizontalOptions="Center">
+                 <Label Margin="20,5"
+                        FontSize="16"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Text="{Binding Message}"
+                       TextColor="#969daf" />
+                  </Grid>	
+				</ViewCell>
+			</DataTemplate>
+			<datatemplates:ChatTemplateSelector x:Key="chatDataTemplateSelector"
+                OwnerTemplate="{StaticResource OwnerTemplate}"
+                OthersTemplate="{StaticResource OthersTemplate}"
+                SystemTemplate="{StaticResource SystemTemplate}"
+                QueryResponseTemplate="{StaticResource QueryResponseTemplate}"/>
+			</ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <BoxView BackgroundColor="{StaticResource PrimaryColor}" />
+        <Label
+            Margin="10"
+            FontSize="20"
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="Start"
+            Text="{Binding UserName,StringFormat='Welcome {0}'}"
+            TextColor="White" />
+        <Label
+            Margin="10"
+            FontSize="20"
+            HorizontalOptions="End"
+            HorizontalTextAlignment="Start"
+            Text="Close"
+            TextColor="White">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding DisconnectCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
+        <ListView
+            x:Name="myListview"
+            Grid.Row="1"
+            HasUnevenRows="True"
+            ItemsSource="{Binding MessageList}"
+            SeparatorVisibility="None"
+            SelectionMode="None"
+            VerticalOptions="FillAndExpand"
+            ItemTemplate="{StaticResource chatDataTemplateSelector}">
+            
+        </ListView>
+        <Grid
+            Grid.Row="2"
+            ColumnSpacing="0"
+            RowSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="70" />
+            </Grid.ColumnDefinitions>
+            <Entry
+                BackgroundColor="#f5f9fa"
+                Placeholder="Type 'Web app performance' and check"
+                PlaceholderColor="#969daf"
+                Text="{Binding Message}"
+                TextColor="Black" />
+            <Button
+                Grid.Column="1"
+                BackgroundColor="#2ac2c5"
+                Command="{Binding SendMessageCommand}"
+                HorizontalOptions="FillAndExpand"
+                Text="Send"
+                VerticalOptions="FillAndExpand" />
+        </Grid>
+        <Grid
+            Grid.RowSpan="3"
+            BackgroundColor="#99FFFFFF"
+            IsVisible="{Binding IsConnected, Converter={StaticResource InverseBool}}">
+            <StackLayout
+                Margin="20,40"
+                BackgroundColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+                <Label
+                    HorizontalOptions="Center"
+                    Text="Your chat name:"
+                    TextColor="Black"
+                    VerticalOptions="Center" />
+                <Entry
+                    BackgroundColor="#f5f9fa"
+                    Placeholder="Name"
+                    PlaceholderColor="#969daf"
+                    Text="{Binding UserName}"
+                    WidthRequest="150" />
+                <Button
+                    Grid.Column="1"
+                    BackgroundColor="#2ac2c5"
+                    Command="{Binding ConnectCommand}"
+                    HorizontalOptions="FillAndExpand"
+                    Text="Connect"
+                    VerticalOptions="FillAndExpand" />
+            </StackLayout>
+        </Grid>
+    </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

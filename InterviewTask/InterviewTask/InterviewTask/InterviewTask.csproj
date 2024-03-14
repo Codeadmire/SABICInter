@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <ProduceReferenceAssemblyInOutDir>true</ProduceReferenceAssemblyInOutDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="CustomControls\" />
+    <None Remove="Assets\" />
+    <None Remove="Assets\richtext_file.html" />
+    <None Remove="Images\" />
+    <None Remove="Images\delete_icon.svg" />
+    <None Remove="Images\edit_icon.svg" />
+    <None Remove="Images\preview_icon.svg" />
+    <None Remove="Extensions\" />
+    <None Remove="Images\preview_icon.png" />
+    <None Remove="Images\edit_icon.png" />
+    <None Remove="Images\delete_icon.png" />
+    <None Remove="Converters \" />
+    <None Remove="DataTemplates\" />
+    <None Remove="Images\chatbot_icon.png" />
+    <None Remove="Images\attachment_icon.png" />
+    <None Remove="Images\copy_icon.png" />
+    <None Remove="Images\share_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CustomControls\" />
+    <Folder Include="Assets\" />
+    <Folder Include="Images\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Converters \" />
+    <Folder Include="DataTemplates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\richtext_file.html" />
+    <EmbeddedResource Include="Images\delete_icon.svg" />
+    <EmbeddedResource Include="Images\edit_icon.svg" />
+    <EmbeddedResource Include="Images\preview_icon.svg" />
+    <EmbeddedResource Include="Images\preview_icon.png" />
+    <EmbeddedResource Include="Images\edit_icon.png" />
+    <EmbeddedResource Include="Images\delete_icon.png" />
+    <EmbeddedResource Include="Images\chatbot_icon.png" />
+    <EmbeddedResource Include="Images\attachment_icon.png" />
+    <EmbeddedResource Include="Images\copy_icon.png" />
+    <EmbeddedResource Include="Images\share_icon.png" />
+  </ItemGroup>
+</Project>

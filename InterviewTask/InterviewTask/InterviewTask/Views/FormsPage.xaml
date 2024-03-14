@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="InterviewTask.Views.FormsPage"
+    x:Name="formPage"
+    xmlns:imageextension="clr-namespace:InterviewTask.Extensions">
+     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid RowDefinitions="*,Auto" Padding="0,0,0,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+        <StackLayout>
+            
+            <ScrollView x:Name="ScrollHeader" Scrolled="ScrollView_Scrolled" HeightRequest="50" Orientation="Horizontal">
+
+               <Grid Grid.Row="0" ColumnSpacing="1"  HeightRequest="30" BackgroundColor="White">
+                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
+                     <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                     <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="80"/>
+                 </Grid.ColumnDefinitions>
+                 <Frame BackgroundColor="#009FDF"  Grid.Column="0" CornerRadius="0" Padding="5" HasShadow="False">
+                 <Label Text="Delete" HorizontalTextAlignment="Center"  VerticalOptions="Center" TextColor="White" FontSize="Small"/>
+                 </Frame>
+                 <Frame BackgroundColor="#009FDF" CornerRadius="0" Grid.Column="1" Padding="5" HasShadow="False">
+                 <Label Text="Edit" HorizontalTextAlignment="Center"  VerticalOptions="Center" TextColor="White" FontSize="Small"/>
+                 </Frame>
+                 <Frame BackgroundColor="#009FDF" CornerRadius="0" Grid.Column="2" Padding="5" HasShadow="False">
+                 <Label Text="Control Type" HorizontalTextAlignment="Center"  VerticalOptions="Center" TextColor="White" FontSize="Small"/>
+                  </Frame>
+                  <Frame BackgroundColor="#009FDF" CornerRadius="0" Grid.Column="3" Padding="5" HasShadow="False">
+                 <Label Text="Label English"  HorizontalTextAlignment="Center" VerticalOptions="Center" TextColor="White" FontSize="Small"/>
+                 </Frame>
+                  <Frame BackgroundColor="#009FDF" CornerRadius="0" Grid.Column="4" Padding="5" HasShadow="False">
+                 <Label Text="Label Arabic" HorizontalTextAlignment="Center" VerticalOptions="Center" TextColor="White" FontSize="Small"/>
+                 </Frame>
+                  <Frame BackgroundColor="#009FDF" CornerRadius="0" Grid.Column="5" Padding="5" HasShadow="False">
+                 <Label Text="Is Compulsory?" HorizontalTextAlignment="Center" VerticalOptions="Center" TextColor="White" FontSize="Small"/>
+                 </Frame>
+                  <Frame BackgroundColor="#009FDF" CornerRadius="0" Grid.Column="6" Padding="5" HasShadow="False">
+                 <Label Text="Preview"  HorizontalTextAlignment="Center"  VerticalOptions="Center" TextColor="White" FontSize="Small"/>
+                  </Frame>
+                    </Grid>
+                   </ScrollView>
+                        <RefreshView  Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+
+            <ScrollView x:Name="scrollviewContent" Scrolled="scrollviewContent_Scrolled"  VerticalOptions="FillAndExpand" Orientation="Both">
+
+        <StackLayout
+            Orientation="Vertical"
+            VerticalOptions="FillAndExpand"
+            BindableLayout.ItemsSource="{Binding FormList}">
+         
+         <BindableLayout.ItemTemplate>
+             <DataTemplate>
+               <Grid x:Name="rootView" Grid.Row="0" RowDefinitions="Auto,Auto">
+               <Grid Grid.Row="1" ColumnSpacing="1"  BackgroundColor="White">
+                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
+                     <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                     <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="80"/>
+                 </Grid.ColumnDefinitions>
+                 <Frame   Grid.Column="0" CornerRadius="0" Padding="5" HasShadow="False">
+                 <Image WidthRequest="30" HeightRequest="30" Source="{imageextension:ImageResource InterviewTask.Images.delete_icon.png}"  VerticalOptions="Center" >
+                     <Image.GestureRecognizers>
+                         <TapGestureRecognizer Command="{Binding Source={x:Reference formPage},Path=BindingContext.DeleteFormCommand}" CommandParameter="{Binding  Source={x:Reference rootView}, Path=BindingContext}"/>
+
+                     </Image.GestureRecognizers>
+                     </Image>
+                 </Frame>
+                 <Frame  CornerRadius="0" Grid.Column="1" Padding="5" HasShadow="False">
+                 <Image WidthRequest="30" HeightRequest="30" Source="{imageextension:ImageResource InterviewTask.Images.edit_icon.png}"  VerticalOptions="Center" />
+                 </Frame>
+                 <Frame  CornerRadius="0" Grid.Column="2" Padding="5" HasShadow="False">
+                 <Label Text="{Binding ControlType}" HorizontalTextAlignment="Center"  VerticalOptions="Center" FontSize="Small"/>
+                  </Frame>
+                  <Frame CornerRadius="0" Grid.Column="3" Padding="5" HasShadow="False">
+                 <Label Text="{Binding LabelEnglish}" HorizontalTextAlignment="Center" LineBreakMode="WordWrap" VerticalOptions="Center" FontSize="Small"/>
+                 </Frame>
+                  <Frame CornerRadius="0" Grid.Column="4" Padding="5" HasShadow="False">
+                 <Label Text="{Binding LabelArabic}" HorizontalTextAlignment="Center" LineBreakMode="WordWrap" VerticalOptions="Center" FontSize="Small"/>
+                 </Frame>
+                  <Frame CornerRadius="0" Grid.Column="5" Padding="5" HasShadow="False">
+                 <Label Text="{Binding IsCompulsory}" HorizontalTextAlignment="Center"  VerticalOptions="Center" FontSize="Small"/>
+                 </Frame>
+                  <Frame  CornerRadius="0" Grid.Column="6" Padding="5" HasShadow="False">
+                 <Label Text="Preview"   VerticalOptions="Center" FontSize="Small"/>
+                  </Frame>
+                    </Grid>
+               </Grid>
+
+                
+                 
+             </DataTemplate>
+
+         </BindableLayout.ItemTemplate>
+         </StackLayout>
+        </ScrollView>
+                </RefreshView>
+
+        </StackLayout>
+            <StackLayout Grid.Row="1" Margin="5,0,5,0" VerticalOptions="End" Orientation="Horizontal">
+
+                <Button  Text="Preview" IsVisible="{Binding IsPreviewVisible}" Command="{Binding PreviewCommand}" BackgroundColor="#E25303" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            </Grid>
+     
+    </ContentPage.Content>
+</ContentPage>
+
